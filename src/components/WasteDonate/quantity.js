@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './donatefood.css';
+import './donatewaste.css';
 
 function Quantity({setPage ,setUserData, userData}) {
 
@@ -13,8 +13,8 @@ function Quantity({setPage ,setUserData, userData}) {
 
     return (
       <div className="container">
-        <div className="headerContainer">Food Quantity</div>
-        <div className="personalContainer">Select the Category for the required food quantity</div>
+        <div className="headerContainer">Wasted Food Quantity</div>
+        <div className="personalContainer">Select the Quantity for the Wasted food</div>
         <div className='cardContainer'>
             <div className={`${quantity==='Home'?'selectedcards':'cards qty-card'}`}  onClick={()=> {setQuantity('Home')}}>
                 <div className='cardHeader'>Home</div>
