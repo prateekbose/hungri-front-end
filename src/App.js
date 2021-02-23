@@ -1,21 +1,31 @@
-import React from 'react'
-import { BrowserRouter as Router, Route} from 'react-router-dom'
-
+import { useState, useEffect, lazy, Suspense } from 'react'
+import logo from './logo.svg'
 import NavBar from './components/nav'
 import HeroSection from './components/hero'
-import Donatefood from './components/donatefood/donatefood'
-import DonateWaste from "./components/WasteDonate/donatewaste";
+const Donate = lazy(() => import('./components/donate'))
 
-function App() {
-  return ([
-    <NavBar/>,
-    <Router>
-      <Route exact path='/' component={HeroSection} />
-      <Route exact path='/donate' component={Donatefood} />
-      <Route exact path='/waste' component={DonateWaste} />
-    </Router>
-  ]);
+const App = () => {
+
+  const [loadingState, setLoadingState] = useState(false)
+  const [page, setPage] = useState("Home")
+
+  const [donateSize, setDonateSize] = useState(null)
+
+  useEffect(() => {
+    window.addEventListener('load', (event) => setLoadingState(true))
+  }, [])
+
+  useEffect(() => {
+    console.log(page)
+  }, [page])
+
+  return [
+    <NavBar loading={loadingState} page={page}/>,
+    <HeroSection loading={loadingState} page={page} setPage={setPage}/>,
+    <Suspense fallback={<div></div>}>
+      <Donate page={page} setPage={setPage} setDonateSize={setDonateSize}/>
+    </Suspense>
+  ]
 }
-
 
 export default App;
