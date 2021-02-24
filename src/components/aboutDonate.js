@@ -8,6 +8,7 @@ const DetailsDonate = ({  nextDonate, page, donate, setDonateSize }) => {
     const [name, setName] = useState('')
     const [addr, setAddr] = useState('')
     const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
 
     const Appear = (delay) => useSpring({
         from: {
@@ -37,8 +38,9 @@ const DetailsDonate = ({  nextDonate, page, donate, setDonateSize }) => {
                 <animated.p style={Appear(1)}>I am <input type="text" name="name" placeholder="John Doe" onChange={(event) => setName(event.target.value)}></input></animated.p>
                 <animated.p style={Appear(2)}>My address is <input type="text" name="address" placeholder="MG Road, Bangalore" onChange={(event) => setAddr(event.target.value)}></input></animated.p>
                 <animated.p style={Appear(3)}>I can be contacted on my phone <input type="tel" name="phone" placeholder="+91 1234567890" pattern="{+91}{1} [0-9]{10}" onChange={(event) => setPhone(event.target.value)}></input></animated.p>
+                <animated.p style={Appear(4)}>Or I can be contacted on my mail <input type="email" name="email" placeholder="johndoe@xyz.com" onChange={(event) => setEmail(event.target.value)}></input></animated.p>
             </div>
-            <animated.button style={Appear(4)} className="button" onClick={() => nextDonate({Name: name, Address: addr, Phone: phone})}>Next</animated.button>
+            <animated.button style={Appear(5)} className="button" onClick={() => nextDonate({Name: name, Address: addr, Phone: phone, Mail: email})}>Next</animated.button>
         </div>
     )
 }

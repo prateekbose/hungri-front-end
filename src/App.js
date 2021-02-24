@@ -7,7 +7,7 @@ const Donate = lazy(() => import('./components/donate'))
 const App = () => {
 
   const [loadingState, setLoadingState] = useState(false)
-  const [page, setPage] = useState("Home")
+  const [page, setPage] = useState("Donate")
 
   const [donateSize, setDonateSize] = useState(null)
 

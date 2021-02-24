@@ -40,7 +40,7 @@ const AboutDonate = ({ nextDonate, page, donate, setDonateSize }) => {
                     <p>I have wasted or scrap food that I would like to be utilized for composting, or for biogas production.</p>
                 </div>
             </animated.div>
-            <animated.button style={Appear(2)} className="button" onClick={() => nextDonate({type: activeIndex})}>Next</animated.button>
+            <animated.button style={Appear(2)} className="button" onClick={() => nextDonate({type: (activeIndex === 0)?"Food":"Waste"})}>Next</animated.button>
         </div>
     )
 }
