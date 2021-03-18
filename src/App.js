@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import NavBar from './components/nav'
 import HeroSection from './components/hero'
 const Donate = lazy(() => import('./components/donate'))
+const Requests = lazy(() => import('./components/requests'))
 
 const App = () => {
 
@@ -20,10 +21,13 @@ const App = () => {
   }, [page])
 
   return [
-    <NavBar loading={loadingState} page={page}/>,
+    <NavBar loading={loadingState} page={page} setPage={setPage}/>,
     <HeroSection loading={loadingState} page={page} setPage={setPage}/>,
     <Suspense fallback={<div></div>}>
       <Donate page={page} setPage={setPage} setDonateSize={setDonateSize}/>
+    </Suspense>,
+    <Suspense fallback={<div></div>}>
+      <Requests page={page} setPage={setPage} setDonateSize={setDonateSize}/>
     </Suspense>
   ]
 }

@@ -1,7 +1,7 @@
 import { animated, useSpring } from 'react-spring'
 import * as easings from 'd3-ease'
 
-const NavBar = ({ loading, page }) => {
+const NavBar = ({ loading, page, setPage }) => {
 
     const NavAppear = useSpring({
         from: {
@@ -20,7 +20,7 @@ const NavBar = ({ loading, page }) => {
     return (
         <animated.nav style={NavAppear}>
             <h1>hungri</h1>
-            <a href="#" className={(page === "Donate"?'donate-see':'')}>See Requests</a>
+            <a href="#" className={(page === "Donate" || page === "Requests")?'donate-see':''} onClick={() => setPage((page !== "Requests")?"Requests":"Donate")}>{(page === "Requests")?'Place Request':'See Requests'}</a>
         </animated.nav>
     )
 }
