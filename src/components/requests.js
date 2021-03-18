@@ -9,6 +9,7 @@ const Donate = ({ page, setPage, setDonateSize }) => {
     const [phone, setPhone] = useState('')
     const [request, setRequest] = useState(false)
     const [status, setStatus] = useState(false)
+    const [serverDown, setServer] = useState('')
 
     const sendRequest = () => {
         console.log(phone)
@@ -23,6 +24,9 @@ const Donate = ({ page, setPage, setDonateSize }) => {
                 console.log(res["count"])
                 setRequest(res["count"] > 0)
                 setStatus(true)
+            } else {
+                setServer('Server error. Sorry for the inconvience')
+                console.log("error")
             }
         }
         var data = JSON.stringify(temp)
@@ -83,7 +87,7 @@ const Donate = ({ page, setPage, setDonateSize }) => {
             <animated.h1 style={Appear(0)}>Could you tell about the Request?</animated.h1>
             <div className="details-donate">
                 <animated.p style={Appear(1)}>My Phone Number is <input type="tel" name="phone" placeholder="+91 1234567890" onChange={(event) => setPhone(event.target.value)}></input></animated.p>
-                <p>{(status)?((request)?'Your request(s) are processed':'No request(s) associated with Phone Number'):''}</p>
+                <p>{(status)?((request)?'Your request(s) are processed':'No request(s) associated with Phone Number'):serverDown}</p>
             </div>
             <animated.button style={Appear(2)} className="button" onClick={() => sendRequest()}>See Status</animated.button>
         </div>

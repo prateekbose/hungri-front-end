@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "hungri",
+  "name": "hungri",
   "icons": [
     {
-      "src": "https://hungri.herokuapp.com/favicon.ico",
+      "src": "https://hungri.vercel.app/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "https://hungri.herokuapp.com/logo192.png",
+      "src": "https://hungri.vercel.app/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://hungri.herokuapp.com/logo512.png",
+      "src": "https://hungri.vercel.app/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -22,7 +22,8 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "url": "https://hungri.herokuapp.com/",
+  "url": "https://hungri.vercel.app/",
   "lang": "",
-  "screenshots": []
+  "screenshots": [],
+  "manifestUrl": "https://hungri.vercel.app/manifest.json"
 }
