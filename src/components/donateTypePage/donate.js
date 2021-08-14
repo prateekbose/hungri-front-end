@@ -10,7 +10,7 @@ export default function DonateType({setData, data, setPage}){
     const [submitStep, setSubmitStep] = useState(0)
     const [submit, setSubmit] = useState(false)
 
-    const Appear = (index, state) => useSpring({
+    const Appear = (index) => useSpring({
         from: {
             opacity: 0
         },
@@ -25,7 +25,7 @@ export default function DonateType({setData, data, setPage}){
     })
 
     const buttonHandle = () => {
-        if(submit){
+        if(step === 3){
             setPage("Home")
         }
     }
@@ -44,7 +44,7 @@ export default function DonateType({setData, data, setPage}){
             setSubmitStep(1)
             setStep(step+1)
         } else if (submitStep === 1) {
-            console.log(data)
+            setStep(step+1)
             var xhr = new XMLHttpRequest()
             var url = ""
             var temp = data

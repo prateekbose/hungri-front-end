@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css';
 import NavBar from './components/Nav/nav'
 import HeroSection from './components/Hero/hero'
@@ -18,14 +18,10 @@ function App() {
     size: ""
   })
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   const pages = {
     "Home": <HeroSection setPage={setPage} page={page}/>,
     "Donate": <Donate setPage={setPage} page={page} setData={setData} data={data}/>,
-    "Food": <DonateType setData={setData} data={data}/>,
+    "Food": <DonateType setData={setData} data={data} setPage={setPage}/>,
     "Waste": <DonateType setData={setData} data={data} setPage={setPage}/>,
     "Requests": <Requests setPage={setPage}/>
   } 

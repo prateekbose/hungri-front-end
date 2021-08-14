@@ -8,6 +8,8 @@
 }
 
 html{
+  height: 100vh;
+  overflow: hidden;
   font-size: 10px;
   font-family: 'Inter', sans-serif;
 }
@@ -367,7 +369,6 @@ h1 .reveal span{
 .donate-type .donate-form button{
   margin-top: 1.5rem;
   align-self: flex-end;
-  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;

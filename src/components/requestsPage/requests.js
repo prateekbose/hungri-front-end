@@ -48,8 +48,6 @@ export default function DonateType({setPage}){
                     if(res["count"] > 0){
                         setState(true)
                     }
-                } else {
-                    console.log("error")
                 }
             }
         }
