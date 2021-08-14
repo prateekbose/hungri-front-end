@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
 import * as easings from 'd3-ease'
 import { ArrowRight, Check } from 'react-feather'
@@ -9,6 +9,10 @@ export default function DonateType({setData, data, setPage}){
     const [step, setStep] = useState(1)
     const [submitStep, setSubmitStep] = useState(0)
     const [submit, setSubmit] = useState(false)
+
+    useEffect(() => {
+        document.title = "hungri | Donate"
+    }, [])
 
     const Appear = (index) => useSpring({
         from: {

@@ -1,4 +1,5 @@
-import { animated, useSpring } from 'react-spring';
+import { useEffect } from 'react'
+import { animated, useSpring } from 'react-spring'
 import * as easings from 'd3-ease'
 import RevealText from '../RevealText/reveal'
 
@@ -17,6 +18,10 @@ export default function Donate({setPage, page, setData, data}){
             easing: easings.easeCubic
         }
     })
+
+    useEffect(() => {
+        document.title = "hungri | Donate"
+    }, [])
 
     const setDataPage = (type) => {
         let newData = data
