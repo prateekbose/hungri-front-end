@@ -1,5 +1,6 @@
 import { animated, useSpring } from 'react-spring'
 import * as easings from 'd3-ease'
+import RevealText from './RevealText'
 
 const HeroSection = ({ loading, page, setPage }) => {
 
@@ -16,22 +17,6 @@ const HeroSection = ({ loading, page, setPage }) => {
         config: {
             duration: 600,
             easing: easings.easeCubic
-        }
-    })
-
-    const ImageAppear = useSpring({
-        from: {
-            width: "0%",
-            opacity: 0
-        },
-        to: {
-            width: (loading && page==="Home")?"100%":"0%",
-            opacity: (loading && page==="Home")?1:0
-        },
-        delay: 2200,
-        config: {
-            duration: 1200,
-            easing: easings.easeCubicIn
         }
     })
 
@@ -57,8 +42,8 @@ const HeroSection = ({ loading, page, setPage }) => {
         <div className="hero">
             <div className="hero-section">
                 <div>
-                    <animated.h1 style={TextAppear(0)}>Donate Now.</animated.h1>
-                    <animated.h1 style={TextAppear(1)}>Help Save Lives.</animated.h1>
+                    <h1><RevealText text={"Donate Now"}/></h1>
+                    <h1><RevealText text={"Help Save Lives"}/></h1>
                 </div>
                 <animated.p style={TextAppear(2)}>
                     Help us empower communities, and ensure more children can grow up strong.
@@ -67,12 +52,9 @@ const HeroSection = ({ loading, page, setPage }) => {
                     <animated.button style={ButtonAppear(0)} className="button" onClick={DonateButton}>
                         Donate Food
                     </animated.button>
-                    <animated.button style={ButtonAppear(1)} className="button-alt">
-                        Share
-                    </animated.button>
                 </div>
             </div>
-            <animated.div className="hero-image" style={ImageAppear}></animated.div>
+            <div className="hero-image"></div>
         </div>
     )
 }

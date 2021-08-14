@@ -1,34 +1,38 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
-import logo from './logo.svg'
-import NavBar from './components/nav'
-import HeroSection from './components/hero'
-const Donate = lazy(() => import('./components/donate'))
-const Requests = lazy(() => import('./components/requests'))
+import { useState, useEffect } from 'react'
+import './App.css';
+import NavBar from './components/Nav/nav'
+import HeroSection from './components/Hero/hero'
+import Donate from './components/donatePage/donate'
+import DonateType from './components/donateTypePage/donate'
+import Requests from './components/requestsPage/requests'
 
-const App = () => {
+function App() {
 
-  const [loadingState, setLoadingState] = useState(false)
   const [page, setPage] = useState("Home")
-
-  const [donateSize, setDonateSize] = useState(null)
+  const [data, setData] = useState({
+    type: "",
+    name: "",
+    address: "",
+    phone: "",
+    email: "",
+    size: ""
+  })
 
   useEffect(() => {
-    window.addEventListener('load', (event) => setLoadingState(true))
-  }, [])
+    console.log(data)
+  }, [data])
 
-  useEffect(() => {
-    console.log(page)
-  }, [page])
+  const pages = {
+    "Home": <HeroSection setPage={setPage} page={page}/>,
+    "Donate": <Donate setPage={setPage} page={page} setData={setData} data={data}/>,
+    "Food": <DonateType setData={setData} data={data}/>,
+    "Waste": <DonateType setData={setData} data={data} setPage={setPage}/>,
+    "Requests": <Requests setPage={setPage}/>
+  } 
 
   return [
-    <NavBar loading={loadingState} page={page} setPage={setPage}/>,
-    <HeroSection loading={loadingState} page={page} setPage={setPage}/>,
-    <Suspense fallback={<div></div>}>
-      <Donate page={page} setPage={setPage} setDonateSize={setDonateSize}/>
-    </Suspense>,
-    <Suspense fallback={<div></div>}>
-      <Requests page={page} setPage={setPage} setDonateSize={setDonateSize}/>
-    </Suspense>
+    <NavBar setPage={setPage}/>,
+    pages[page],
   ]
 }
 
