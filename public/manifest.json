@@ -5,17 +5,20 @@
     {
       "src": "https://hungri.vercel.app/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
       "src": "https://hungri.vercel.app/logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "https://hungri.vercel.app/logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
   "start_url": ".",
@@ -23,7 +26,7 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "url": "https://hungri.vercel.app/",
-  "lang": "",
+  "lang": "en",
   "screenshots": [],
   "manifestUrl": "https://hungri.vercel.app/manifest.json"
 }
