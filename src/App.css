@@ -20,6 +20,12 @@ html{
   }
 }
 
+@media only screen and (max-width: 1366px){
+  html{
+    font-size: 7.5px;
+  }
+}
+
 nav{
   position: fixed;
   top: 0;
@@ -34,6 +40,13 @@ nav{
   nav{
     padding: 2.5rem;
     width: calc(100% - 5rem);
+  }
+}
+
+@media only screen and (max-width: 1366px){
+  nav{
+    padding: 2.5rem 10rem;
+    width: calc(100% - 20rem);
   }
 }
 
@@ -156,6 +169,13 @@ nav div{
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 0rem;
+  }
+}
+
+@media only screen and (max-width: 1366px){
+  .hero-section{
+    height: calc(100vh - 10rem);
+    padding: 5rem 10rem 0rem;
   }
 }
 
