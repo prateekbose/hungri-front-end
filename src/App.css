@@ -43,7 +43,7 @@ nav{
   }
 }
 
-@media only screen and (max-width: 1366px){
+@media only screen and (min-width: 769px) and (max-width: 1366px){
   nav{
     padding: 2.5rem 10rem;
     width: calc(100% - 20rem);
@@ -172,7 +172,7 @@ nav div{
   }
 }
 
-@media only screen and (max-width: 1366px){
+@media only screen and (min-width: 769px) and (max-width: 1366px){
   .hero-section{
     height: calc(100vh - 10rem);
     padding: 5rem 10rem 0rem;
